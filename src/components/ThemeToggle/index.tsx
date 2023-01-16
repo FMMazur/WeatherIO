@@ -10,6 +10,7 @@ export const ThemeToggle = function ThemeToggle() {
       size="lg"
       color={colorScheme === "dark" ? "yellow" : "violet"}
       variant="filled"
+      title={colorScheme === "dark" ? "Light mode" : "Dark mode"}
     >
       {colorScheme === "dark" ? (
         <IconSun size={18} />
