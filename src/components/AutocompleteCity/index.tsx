@@ -78,10 +78,8 @@ export const AutocompleteCity = memo(function AutocompleteCity() {
             .latitude(item.latitude)
             .longitude(item.longitude)
         ).then((data) => {
-          setTimeout(() => {
-            setSelectedCity({ ...item, ...data });
-            setLoading(false);
-          }, 2000);
+          setSelectedCity({ ...item, ...data });
+          setLoading(false);
         });
       }}
       itemComponent={AutocompleteCityItem}
