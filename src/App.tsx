@@ -2,7 +2,7 @@ import { Box, Center, Container, Divider, Title } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import { memo, useEffect } from "react";
 import { AutocompleteCity } from "./components/AutocompleteCity";
-import { Capitals, Temperature } from "./components/Capitals";
+import { Capitals, CapitalsSkeleton, Temperature } from "./components/Capitals";
 import { MeteoApi, MeteoApiQuery } from "./meteo";
 
 import { SelectedCity } from "./components/SelectedCity";
@@ -41,6 +41,7 @@ function App() {
     defaultValue: [],
     getInitialValueInEffect: false,
   });
+  const loadingCapitals = capitals.length === 0;
 
   useEffect(() => {
     if (!lastUpdate) {
@@ -106,7 +107,8 @@ function App() {
 
       <Divider />
 
-      <Capitals capitals={capitals} />
+      {loadingCapitals && <CapitalsSkeleton size={CAPITALS.length}/>}
+      {!loadingCapitals && <Capitals capitals={capitals} />}
 
       <Footer />
     </Container>
