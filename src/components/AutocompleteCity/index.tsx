@@ -19,8 +19,6 @@ export type AutocompleteDataType = SearchResult & {
 const RightSection = memo(function RightSection() {
   const isLoading = useAtomValue(loadingSelectedCityAtom);
 
-  console.log("isLoading", isLoading);
-
   return (
     <ActionIcon loading={isLoading}>
       <IconSearch />
