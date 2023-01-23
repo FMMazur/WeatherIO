@@ -115,7 +115,7 @@ export const SelectedCity = () => {
   );
 
   const nextDays = [...Array(5).keys()].map((i) => {
-    const currentDay = (today.getUTCDay() + i) % 7;
+    const currentDay = (today.getUTCDay() + i + 1) % 7;
 
     const data = (
       <Flex direction="column">
