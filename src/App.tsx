@@ -41,7 +41,10 @@ function App() {
     defaultValue: [],
     getInitialValueInEffect: false,
   });
-  const loadingCapitals = capitals.length === 0;
+  const loadingCapitals =
+    capitals.length === 0 ||
+    new Date(lastUpdate).toLocaleDateString() !==
+      new Date().toLocaleDateString();
 
   useEffect(() => {
     if (!lastUpdate) {
@@ -107,7 +110,7 @@ function App() {
 
       <Divider />
 
-      {loadingCapitals && <CapitalsSkeleton size={CAPITALS.length}/>}
+      {loadingCapitals && <CapitalsSkeleton size={CAPITALS.length} />}
       {!loadingCapitals && <Capitals capitals={capitals} />}
 
       <Footer />
